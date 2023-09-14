@@ -6,23 +6,16 @@
     <a href="">
       <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
     </a>
-
-
     <a href="">
-
-
       <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
-
-      {{ numberProduct() }}
     </a>
   </div>
   <div class="side-menu" [class.active]="activeMenu">
     <button (click)="toggleMenu()">Close</button>
     <ul>
       <li><a href="">All</a></li>
-      <li><a href="">Flowers</a></li>
-      <li><a href="">Bouquets</a></li>
-      <li><a href="">Promotions</a></li>
+      <li><a href="">Clothes</a></li>
+      <li><a href="">Electronics</a></li>
     </ul>
   </div>
 </div>
@@ -34,19 +27,17 @@
       </a>
       <ul>
         <li><a href="">All</a></li>
-        <li><a href="">Flowers</a></li>
-        <li><a href="">Bouquets</a></li>
-        <li><a href="">Promotions</a></li>
+        <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li>
       </ul>
     </nav>
     <div class="info">
       <div class="account">hellen@roxely.com</div>
-      <div>
+      <div class="cart">
         <a href="">
           <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
-          {{ numberProduct() }}
-
         </a>
+        <span class="counter">{{ counter }}</span>
       </div>
     </div>
   </div>

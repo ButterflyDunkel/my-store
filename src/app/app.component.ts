@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Product } from './models/product.model';
 
 @Component({
@@ -8,16 +9,15 @@ import { Product } from './models/product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  imgParent = 'https://source.unsplash.com/random';
+  imgParent = '';
   showImg = true;
 
 
-  onLoaded(img: string){
-    console.log("log padre", img);
+  onLoaded(img: string) {
+    console.log('log padre', img);
   }
 
-  toggleImg(){
+  toggleImg() {
     this.showImg = !this.showImg;
   }
 }

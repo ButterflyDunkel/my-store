@@ -7,19 +7,22 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, AfterViewIni
 })
 export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
 
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   img: string = '';
 
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
     console.log('change just img  =>' ,this.img);
     // code
   }
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   @Input() alt: string = '';
   @Output() loaded = new EventEmitter<string>();
   imageDefault = './assets/images/default.png';
-  //counter = 0;
-  //counterFn: number | undefined;
+  // counter = 0;
+  // counterFn: number | undefined;
 
   constructor() {
     // before render
@@ -41,10 +44,10 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
     // before render
     // async - fetch -- once time
     console.log('ngOnInit', 'imgValue =>', this.img);
-    //this.counterFn = window.setInterval(() => {
-     // this.counter += 1;
-      //console.log('run counter');
-    //}, 1000);
+    // this.counterFn = window.setInterval(() => {
+    //   this.counter += 1;
+    //   console.log('run counter');
+    // }, 1000);
   }
 
   ngAfterViewInit() {
@@ -56,7 +59,7 @@ export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy
   ngOnDestroy() {
     // delete -- once time
     console.log('ngOnDestroy');
-    //window.clearInterval(this.counterFn);
+    // window.clearInterval(this.counterFn);
   }
 
   imgError() {

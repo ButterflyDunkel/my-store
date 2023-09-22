@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 export interface Category {
   id: string;
   name: string;
@@ -10,6 +11,7 @@ export interface Product {
   images: string[];
   description: string;
   category: Category;
+  taxes?: number;
 }
 
 

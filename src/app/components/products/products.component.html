@@ -17,6 +17,7 @@
   {{'hOLA BasCVASas asASA' | uppercase}}
 </p>-->
 <button (click)="createNewProduct()">Create</button>
+<button (click)="onShowDetail('1')">detalle not found</button>
 <div class="products--grid">
   <app-product [product]="product" *ngFor="let product of products"
   (addedProduct)="onAddToShoppingCart($event)"
@@ -25,6 +26,7 @@
 <button (click)="loadMore()">Load more</button>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
+  {{ statusDetail }}
   <div *ngIf="productChosen">
     <button (click)="toggleProductDetail()">Close</button>
     <h1>{{ productChosen.title}}</h1>

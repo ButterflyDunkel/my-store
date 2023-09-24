@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Product } from './models/product.model';
+import { AuthService } from './services/auth.service';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   imgParent = '';
   showImg = true;
+  token = '';
 
+  constructor(
+    private authService: AuthService,
+    private usersService: UsersService
+  ) {}
 
   onLoaded(img: string) {
     console.log('log padre', img);
@@ -19,5 +24,33 @@ export class AppComponent {
 
   toggleImg() {
     this.showImg = !this.showImg;
+  }
+
+  createUser() {
+    this.usersService
+      .create({
+        name: 'Sebas',
+        email: 'sebas@mail.com',
+        password: '1212',
+      })
+      .subscribe((rta) => {
+        console.log(rta);
+      });
+  }
+
+  login() {
+    this.authService.login('john@mail.com', 'changeme').subscribe((rta) => {
+      sessionStorage.setItem('access_token', rta.access_token);
+      // sessionStorage.setItem('refresh_token', rta.refresh_token)
+      console.log(rta.access_token);
+      this.token = rta.access_token;
+    });
+  }
+
+  getProfile(){
+    this.authService.profile(this.token)
+    .subscribe(profile => {
+      console.log(profile);
+    });
   }
 }

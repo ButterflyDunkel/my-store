@@ -1,0 +1,63 @@
+Resumen
+1.
+¿Según el protocolo REST API cuál es objetivo de una petición de tipo GET?
+Obtener información
+2.
+¿Cuál paquete de Angular debemos importar en el App Module para trabajar con HttpClient?
+import { HttpClientModule } from '@angular/common/http';
+4.
+¿Cuál es la función de la librería swiper en el proyecto?
+Se usa para mostrar slides en el detalle del producto.
+5.
+¿Según el protocolo REST API cuál es objetivo de una petición de tipo POST?
+Crear información
+6.
+¿La información que enviamos al servicio de REST API (DTOs) siempre coincide con el modelo o la respuesta del backend?
+Falso
+7.
+¿Según el protocolo REST API cuál es objetivo de una petición de tipo PUT?
+Modificar información
+9.
+¿Según el protocolo REST API cuál es objetivo de una petición de tipo DELETE?
+Eliminar información
+10.
+¿Para enviar Url Params con HttpClient que atributo debemos usar?
+params
+12.
+¿Qué operador de rxjs usamos para reintentar una petición?
+retry
+13.
+¿Si una solicitud sale desde el mismo origen hay problema de CORS?
+Falso
+14.
+¿Los ambientes me permiten tener diferentes valores para un variable según el entorno?
+Verdadero
+15.
+¿Qué operador de rxjs usamos para capturar un error de un observable?
+catchError
+16.
+¿Cuál es el status code cuando no tienes autorización por parte del backend?
+401
+17.
+¿Qué operador de rxjs usamos para aplicar una transformación por cada valor emitido en el Observable?
+map
+18.
+¿Es frecuente que el token de autorización se envíe en los headers de una petición?
+Verdadero
+20.
+¿Cuándo queremos descargar un archivo de texto que responseType usamos?
+blob
+
+---------------------------------------------------------------------------------------
+3.
+¿Cuál es la manera correcta de tipar una petición usando HttpClient?
+this.http.get(...) as Product[]
+8.
+¿Cuál es la funcionalidad de un Partial en Typescript?
+Toma los atributos de un tipo y omite los que le definamos.
+11.
+¿Las promesas se pueden cancelar al igual que los observables?
+Verdadero
+19.
+¿Cuál es el comando para generar un interceptor con el Angular CLI?
+npm i g interface name

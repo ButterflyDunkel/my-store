@@ -1,6 +1,12 @@
 {
   "/api/*": {
-    "target": "https://api.escuelajs.co/",
+    "target": "https://young-sands-07814.herokuapp.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/pdf.js/web/*": {
+    "target": "https://mozilla.github.io",
     "secure": true,
     "logLevel": "debug",
     "changeOrigin": true

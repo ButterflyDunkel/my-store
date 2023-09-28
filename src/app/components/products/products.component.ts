@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
 
 import { Product, CreateProductDTO, UpdateProductDTO } from '../../models/product.model';
 
@@ -11,11 +10,11 @@ import { ProductsService } from '../../services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent  {
 
   myShoppingCart: Product[] = [];
   total = 0;
-  products: Product[] = [];
+  @Input() products: Product[] = [];
   showProductDetail = false;
   productChosen: Product = {
     id: '',
@@ -28,8 +27,6 @@ export class ProductsComponent implements OnInit {
     },
     description: ''
   };
-  limit = 10;
-  offset = 0;
   statusDetail: 'loading' | 'success' | 'error' | 'init' = "loading";
 
   constructor(
@@ -37,13 +34,6 @@ export class ProductsComponent implements OnInit {
     private productsService: ProductsService
   ) {
     this.myShoppingCart = this.storeService.getShoppingCart();
-  }
-
-  ngOnInit(): void {
-    this.productsService.getProductsByPage(10, 0)
-    .subscribe(data => {
-      this.products = data;
-    });
   }
 
   onAddToShoppingCart(product: Product) {
@@ -68,20 +58,20 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  readAndUpdate(id: string){
-    this.productsService.getProduct(id)
-    .pipe(
-      switchMap((product) =>  this.productsService.update(product.id, {title: 'change'}))
-    )
-    .subscribe(data => {
-      console.log(data);
-    });
-    this.productsService.fetchReadAndUpdate(id, {title: 'change'})
-    .subscribe(response => {
-      const read = response[0];
-      const update = response[1];
-    })
-  }
+//  readAndUpdate(id: string){
+//   this.productsService.getProduct(id)
+//    .pipe(
+//      switchMap((product) =>  this.productsService.update(product.id, {title: 'change'}))
+//    )
+//    .subscribe(data => {
+//      console.log(data);
+//    });
+//    this.productsService.fetchReadAndUpdate(id, {title: 'change'})
+//    .subscribe(response => {
+//      const read = response[0];
+//      const update = response[1];
+//    })
+//  }
 
   createNewProduct() {
     const product: CreateProductDTO = {
@@ -121,11 +111,11 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  loadMore(){
-    this.productsService.getProductsByPage(this.limit, this.offset)
-    .subscribe(data => {
-      this.products = this.products.concat(data);
-      this.offset = this.limit;
-    });
-  }
+  //loadMore(){
+  //  this.productsService.getProductsByPage(this.limit, this.offset)
+  //  .subscribe(data => {
+  //    this.products = this.products.concat(data);
+  //    this.offset = this.limit;
+  //  });
+  //}
 }

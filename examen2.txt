@@ -17,12 +17,18 @@ Falso
 7.
 ¿Según el protocolo REST API cuál es objetivo de una petición de tipo PUT?
 Modificar información
+8.
+¿Cuál es la funcionalidad de un Partial en Typescript?
+Toma los atributos de un tipo y los pone todos como opcionales.
 9.
 ¿Según el protocolo REST API cuál es objetivo de una petición de tipo DELETE?
 Eliminar información
 10.
 ¿Para enviar Url Params con HttpClient que atributo debemos usar?
 params
+11.
+¿Las promesas se pueden cancelar al igual que los observables?
+Falso
 12.
 ¿Qué operador de rxjs usamos para reintentar una petición?
 retry
@@ -44,6 +50,9 @@ map
 18.
 ¿Es frecuente que el token de autorización se envíe en los headers de una petición?
 Verdadero
+19.
+¿Cuál es el comando para generar un interceptor con el Angular CLI?
+ng g interceptor
 20.
 ¿Cuándo queremos descargar un archivo de texto que responseType usamos?
 blob
@@ -52,12 +61,5 @@ blob
 3.
 ¿Cuál es la manera correcta de tipar una petición usando HttpClient?
 this.http.get(...) as Product[]
-8.
-¿Cuál es la funcionalidad de un Partial en Typescript?
-Toma los atributos de un tipo y omite los que le definamos.
-11.
-¿Las promesas se pueden cancelar al igual que los observables?
-Verdadero
-19.
-¿Cuál es el comando para generar un interceptor con el Angular CLI?
-npm i g interface name
+<product[]>this.http.get(...) </product[]>
+

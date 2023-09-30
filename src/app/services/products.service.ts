@@ -44,11 +44,12 @@ export class ProductsService {
   }
 
   fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
-    return zip(this.getProduct(id), this.update(id, dto));
+    return zip(this.getOneProduct(id), this.update(id, dto));
   }
 
-  getProduct(id: string) {
-    return this.http.get<Product>(`${this.apiUrl}/products/${id}`).pipe(
+  getOneProduct(id: string) {
+    return this.http.get<Product>(`${this.apiUrl}/products/${id}`)
+    .pipe(
       catchError((error: HttpErrorResponse) => {
 
         if (error.status === HttpStatusCode.Conflict) {

@@ -49,7 +49,7 @@ export class ProductsComponent  {
   onShowDetail(id: string) {
     this.statusDetail = 'loading';
     this.toggleProductDetail();
-    this.productsService.getProduct(id)
+    this.productsService.getOneProduct(id)
     .subscribe(data => {
       this.productChosen = data;
       this.statusDetail = 'success';

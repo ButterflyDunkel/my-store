@@ -12,10 +12,18 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductsComponent  {
 
+  @Input() products: Product[] = [];
+  //@Input() productId: string | null = null;
+  @Input()
+  set productId(id: string | null){
+    if(id){
+      this.onShowDetail(id);
+    }
+  }
+  @Output() loadMore = new EventEmitter();
+
   myShoppingCart: Product[] = [];
   total = 0;
-  @Input() products: Product[] = [];
-  @Output() loadMore = new EventEmitter();
   showProductDetail = false;
   productChosen: Product = {
     id: '',
@@ -28,7 +36,7 @@ export class ProductsComponent  {
     },
     description: ''
   };
-  statusDetail: 'loading' | 'success' | 'error' | 'init' = "loading";
+  statusDetail: 'loading' | 'success' | 'error' | 'init' = "init";
 
   constructor(
     private storeService: StoreService,
@@ -48,7 +56,10 @@ export class ProductsComponent  {
 
   onShowDetail(id: string) {
     this.statusDetail = 'loading';
-    this.toggleProductDetail();
+    if(!this.showProductDetail){
+      this.showProductDetail = true;
+      }
+    //this.toggleProductDetail();
     this.productsService.getOneProduct(id)
     .subscribe(data => {
       this.productChosen = data;
@@ -56,7 +67,7 @@ export class ProductsComponent  {
     }, errorMsg => {
       window.alert(errorMsg);
       this.statusDetail = 'error';
-    })
+    });
   }
 
 //  readAndUpdate(id: string){
@@ -92,10 +103,10 @@ export class ProductsComponent  {
     const changes: UpdateProductDTO = {
       title: 'New Title',
     }
-    const id = this.productChosen.id;
+    const id = this.productChosen?.id;
     this.productsService.update(id,changes)
     .subscribe(data => {
-      console.log('Updated:', data);
+      //console.log('Updated:', data);
       const productIndex = this.products.findIndex(item => item.id === this.productChosen.id);
       this.products[productIndex] = data;
       this.productChosen = data;

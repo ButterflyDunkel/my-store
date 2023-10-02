@@ -18,7 +18,7 @@
 </p>
 <button (click)="createNewProduct()">Create</button>
 <button (click)="onShowDetail('1')">detalle not found</button> -->
-<div class="products--grid">
+<div class="products-grid">
   <app-product [product]="product" *ngFor="let product of products"
   (addedProduct)="onAddToShoppingCart($event)"
   (showProduct)="onShowDetail($event)">

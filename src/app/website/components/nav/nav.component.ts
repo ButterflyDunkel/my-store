@@ -17,7 +17,7 @@ export class NavComponent implements OnInit {
   activeMenu = false;
   counter = 0;
   profile: User | null = null;
-  categories: Category[] = [];
+  categories: Category[] | undefined;
 
   constructor(
     private storeService: StoreService,

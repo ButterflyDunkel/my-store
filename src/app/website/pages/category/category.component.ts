@@ -7,7 +7,7 @@ import { ProductsService } from '../../../services/products.service';
 
 @Component({
   selector: 'app-category',
-  template: `<app-products [products]="products" (loadMore)="onLoadMore"></app-products>`,
+  template: `<app-products [products]="products" (loadMore)="onLoadMore" *ngIf="products"></app-products>`,
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit{
@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit{
   categoryId: string | null = null;
   limit = 10;
   offset = 0;
-  products: Product[] = [];
+  products: Product[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +23,7 @@ export class CategoryComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    debugger
     this.route.paramMap
     .pipe(
       switchMap(params => {
@@ -34,6 +35,7 @@ export class CategoryComponent implements OnInit{
       })
     )
     .subscribe(data => {
+      debugger
       this.products = data;
     });
   }
@@ -43,7 +45,7 @@ export class CategoryComponent implements OnInit{
       this.productsService
       .getProductsByCategory(this.categoryId, this.limit, this.offset)
       .subscribe((data) => {
-        this.products = this.products.concat(data);
+        this.products = this.products?.concat(data);
         this.offset = this.limit;
       });
     }

@@ -6,20 +6,22 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./website/website.module').then(m => m.WebsiteModule)
+    loadChildren: () =>
+      import('./website/website.module').then((m) => m.WebsiteModule),
   },
   {
     path: 'cms',
-    loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule)
+    loadChildren: () => import('./cms/cms.module').then((m) => m.CmsModule),
   },
+
   {
     path: '**',
-    component: NotFoundComponent
-  }
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

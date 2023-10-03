@@ -1,6 +1,14 @@
+
+app-product {
+  max-width: 50vw;
+  padding: 15px;
+
+}
+
 .products-grid {
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .product-detail {
@@ -36,3 +44,4 @@
     grid-gap:15px;
   }
 }
+

@@ -12,7 +12,6 @@ import { CategoryComponent } from './pages/category/category.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MyCartComponent } from './pages/my-cart/my-cart.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RecoveryComponent } from './pages/recovery/recovery.component';
@@ -32,7 +31,6 @@ import { SwiperModule } from 'swiper/angular';
     TimeAgoPipe,
     HighlightDirective,
     HomeComponent,
-    NotFoundComponent,
     CategoryComponent,
     MyCartComponent,
     LoginComponent,

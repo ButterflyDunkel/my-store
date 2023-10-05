@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    debugger
+
     this.route.paramMap
     .pipe(
       switchMap(params => {
@@ -35,7 +35,7 @@ export class CategoryComponent implements OnInit{
       })
     )
     .subscribe(data => {
-      debugger
+      
       this.products = data;
     });
   }
